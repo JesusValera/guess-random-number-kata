@@ -16,8 +16,16 @@ final class GuessingNumberGame
 
     public const STATUS_PLAYER_LOSES = 'You lost';
 
+    private int $currentAttempt = 0;
+
     public function guessNumber(int $number): string
     {
+        $this->currentAttempt++;
+
+        if ($this->currentAttempt >= 3) {
+            return self::STATUS_PLAYER_LOSES;
+        }
+
         if ($number === self::GUESSING_NUMBER) {
             return self::STATUS_PLAYER_WIN;
         }

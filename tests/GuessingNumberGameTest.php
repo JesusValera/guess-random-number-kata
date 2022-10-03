@@ -60,4 +60,25 @@ final class GuessingNumberGameTest extends TestCase
         $secondAttempt = $game->guessNumber(5);
         self::assertEquals(GuessingNumberGame::STATUS_PLAYER_WIN, $secondAttempt);
     }
+
+    /*
+     * As player
+     * I play a 10
+     * I play a 3
+     * I play a 5
+     * The player loses
+     */
+
+    /** @test */
+    public function assert_player_loses_after_three_attempts(): void
+    {
+        $game = new GuessingNumberGame();
+
+        $firstAttempt = $game->guessNumber(3);
+        self::assertEquals(GuessingNumberGame::STATUS_NUMBER_IS_HIGHER, $firstAttempt);
+        $secondAttempt = $game->guessNumber(10);
+        self::assertEquals(GuessingNumberGame::STATUS_NUMBER_IS_LOWER, $secondAttempt);
+        $thirdAttempt = $game->guessNumber(4);
+        self::assertEquals(GuessingNumberGame::STATUS_PLAYER_LOSES, $thirdAttempt);
+    }
 }
