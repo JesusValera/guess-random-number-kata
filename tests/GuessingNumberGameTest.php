@@ -9,12 +9,18 @@ use PHPUnit\Framework\TestCase;
 
 final class GuessingNumberGameTest extends TestCase
 {
+    /*
+     * As player
+     * I play the number 5
+     * the player wins
+     */
+
     /** @test */
-    public function give_me_a_good_name_please(): void
+    public function assert_player_wins_first_attempt(): void
     {
         $game = new GuessingNumberGame();
 
-        $result = $game->guessNumber();
+        $result = $game->guessNumber(5);
 
         self::assertEquals(true, $result);
     }

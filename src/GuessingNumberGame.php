@@ -6,7 +6,7 @@ namespace GuessRandomNumber;
 
 final class GuessingNumberGame
 {
-    public function guessNumber(): bool
+    public function guessNumber(int $number): bool
     {
         return true;
     }
