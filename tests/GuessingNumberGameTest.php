@@ -18,7 +18,8 @@ final class GuessingNumberGameTest extends TestCase
     /** @test */
     public function assert_player_wins_first_attempt(): void
     {
-        $game = new GuessingNumberGame();
+        $randomNumber = new StubRandomNumberGenerator();
+        $game = new GuessingNumberGame($randomNumber);
 
         $result = $game->guessNumber(5);
 
@@ -35,7 +36,8 @@ final class GuessingNumberGameTest extends TestCase
     /** @test */
     public function assert_player_initial_attempt_is_higher(): void
     {
-        $game = new GuessingNumberGame();
+        $randomNumber = new StubRandomNumberGenerator();
+        $game = new GuessingNumberGame($randomNumber);
 
         $firstAttempt = $game->guessNumber(10);
         self::assertEquals(GuessingNumberGame::STATUS_NUMBER_IS_LOWER, $firstAttempt);
@@ -53,7 +55,8 @@ final class GuessingNumberGameTest extends TestCase
     /** @test */
     public function assert_player_initial_attempt_is_lower(): void
     {
-        $game = new GuessingNumberGame();
+        $randomNumber = new StubRandomNumberGenerator();
+        $game = new GuessingNumberGame($randomNumber);
 
         $firstAttempt = $game->guessNumber(3);
         self::assertEquals(GuessingNumberGame::STATUS_NUMBER_IS_HIGHER, $firstAttempt);
@@ -72,7 +75,8 @@ final class GuessingNumberGameTest extends TestCase
     /** @test */
     public function assert_player_loses_after_three_attempts(): void
     {
-        $game = new GuessingNumberGame();
+        $randomNumber = new StubRandomNumberGenerator();
+        $game = new GuessingNumberGame($randomNumber);
 
         $firstAttempt = $game->guessNumber(3);
         self::assertEquals(GuessingNumberGame::STATUS_NUMBER_IS_HIGHER, $firstAttempt);

@@ -7,6 +7,15 @@ If the player fails to guess the number, the game must notify the user if the nu
 
 Kata from [this url](https://www.codurance.com/katalyst/random-number-kata)
 
+## 📚 How to play
+
+Run the following command:
+```php
+php guessNumber.php
+```
+
+> You must have a PHP >=8.0
+
 ### Some composer scripts
 
 ```bash
